@@ -18,15 +18,17 @@
       </ul>
       <ul class="navbar-nav">
       <li class="nav-item dropdown">
+      <% if signed_in? %>
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Dropdown
         </a>
         <ul class="dropdown-menu ">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><%= button_to "Log out", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class:"dropdown-item" %></li>
+      <% else %>
+          <li><%= link_to "Log in", new_user_session_path, class:" nav-link btn btn-info btn-sm" %></li>          
+          <li><%= link_to "Register", new_user_registration_path, class:" nav-link btn btn-primary btn-sm" %></li>
         </ul>
+      <% end %>
       </ul>
       </li>
     </div>

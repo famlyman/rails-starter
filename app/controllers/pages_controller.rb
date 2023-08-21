@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  def home
-    #console
+  def home    
   end
 end
