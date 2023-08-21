@@ -76,3 +76,7 @@ gem "devise", "~> 4.9"
 gem "htmlbeautifier", "~> 1.4"
 
 gem "rubocop", "~> 1.56"
+
+gem "friendly_id", "~> 5.5"
+
+gem "foreman", "~> 0.87.2"

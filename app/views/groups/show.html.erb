@@ -3,9 +3,16 @@
 <%= render @group %>
 
 <div>
-  
-    <%= link_to "Back to groups", groups_path %>
-    <%= link_to "Edit this group", edit_group_path(@group) %> |
-    <%= button_to "Destroy this group", @group, method: :delete %>
+    <% if @group.users.include?(current_user) %>
+      <%= button_to 'Leave', leave_group_path(@group), method: :delete, class:"btn btn-sm btn-warning mb-2" %>
+    <% else %>
+      <%= button_to 'Join', join_group_path(@group), method: :post, class:"btn btn-sm btn-info mb-2" %>
+    <% end %>
+    <br />
+    <%= link_to "Back to groups", groups_path, class:"btn btn-sm btn-primary mb-2" %>
+    <br/>
+    <%= link_to "Edit this group", edit_group_path(@group), class:"btn btn-sm btn-secondary" if current_user.admin? %> 
+    <br/>
+    <%= button_to "Destroy this group", @group, method: :delete, class:"btn btn-sm btn-danger mt-2" if current_user.admin? %>
   
 </div>

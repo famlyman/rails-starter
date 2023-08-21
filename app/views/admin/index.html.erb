@@ -1,8 +1,23 @@
 <h1>Admin#index</h1>
 <p>Find me in app/views/admin/index.html.erb</p>
 <br />
-<% @users.each do |user| %>
-    <%= form_for(user, url: admin_path(user), remote: true, method: :patch) do |f| %>
-        <p><%= f.text_field :email %> - <%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w] }) %> - <%= f.submit "Update" %></p>
+<table class="table table-dark table-striped" >
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Submit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <%= form_for(user, url: admin_path(user), remote: true, method: :patch) do |f| %>
+          <td><%= f.text_field :email %></td>
+          <td><%= f.select(:role, User.roles.keys.map { |w| [w.humanize, w] }) %></td>
+          <td><%= f.submit "Update" %></td>
+        </tr>
+      <% end %>
     <% end %>
-<% end %>
+  </tbody>
+</table>
