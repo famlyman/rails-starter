@@ -1,15 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Groups</h1>
 
+<h1>Groups</h1>
 <div id="groups">
   <% @groups.each do |group| %>
     <%= render group %>
     <p>
-      <%= link_to "Show this group", group, class:"btn btn-sm btn-success mb-2" %>
+      <%= link_to "Show this Team", group, class:"btn btn-sm btn-success mb-2" %>
     </p>
   <% end %>
 </div>
 
 
-<%= link_to "New group", new_group_path, class:"btn btn-sm btn-primary mb-2" %>
+<%= link_to "New Team", new_group_path, class:"btn btn-sm btn-primary mb-2" %>

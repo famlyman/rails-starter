@@ -1,0 +1,15 @@
+<% if group.present? %>
+  <div class="d-flex justify-content-center">
+    <div class="card mx-auto" style="width: 400px; height: 250px;">
+      <div class="card-header">
+        <h3 class="card-title">Team Code</h3>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Your Team Code is <%=group.slug.upcase %></p>
+        <p class="card-text">Share this code with your friends to join the Team</p>
+        <p class="card-text">Click the button below to create your Team</p>
+        <%= button_to "Create Team", group_path(group), method: :get %>
+      </div>
+    </div>
+  </div>
+<% end %>

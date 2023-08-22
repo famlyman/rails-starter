@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i[ show edit update destroy join leave ]
+  before_action :authenticate_user!
 
   # GET /groups or /groups.json
   def index
@@ -57,6 +58,12 @@ class GroupsController < ApplicationController
     end
   end
 
+  def new_team
+    @group = Group.create 
+    
+    
+  end
+
   def join
     @group.users << current_user
     redirect_to group_url(@group), notice: "You have joined the group"
@@ -70,7 +77,7 @@ class GroupsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_group
-      @group = Group.find(params[:id])
+      @group = Group.friendly.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

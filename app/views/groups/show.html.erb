@@ -9,10 +9,10 @@
       <%= button_to 'Join', join_group_path(@group), method: :post, class:"btn btn-sm btn-info mb-2" %>
     <% end %>
     <br />
-    <%= link_to "Back to groups", groups_path, class:"btn btn-sm btn-primary mb-2" %>
+    <%= link_to "Back to Teams", groups_path, class:"btn btn-sm btn-primary mb-2" %>
     <br/>
-    <%= link_to "Edit this group", edit_group_path(@group), class:"btn btn-sm btn-secondary" if current_user.admin? %> 
+    <%= link_to "Edit this Team", edit_group_path(@group), class:"btn btn-sm btn-secondary" if current_user.admin? %> 
     <br/>
-    <%= button_to "Destroy this group", @group, method: :delete, class:"btn btn-sm btn-danger mt-2" if current_user.admin? %>
+    <%= button_to "Destroy this Team", @group, method: :delete, class:"btn btn-sm btn-danger mt-2" if current_user.admin? %>
   
 </div>
