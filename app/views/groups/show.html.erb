@@ -11,8 +11,14 @@
     <br />
     <%= link_to "Back to Teams", groups_path, class:"btn btn-sm btn-primary mb-2" %>
     <br/>
+<<<<<<< Updated upstream
     <%= link_to "Edit this Team", edit_group_path(@group), class:"btn btn-sm btn-secondary" if current_user.admin? %> 
     <br/>
     <%= button_to "Destroy this Team", @group, method: :delete, class:"btn btn-sm btn-danger mt-2" if current_user.admin? %>
+=======
+    <%= link_to "Edit this group", edit_group_path(@group), class:"btn btn-sm btn-secondary" if current_user&.admin? %> 
+    <br/>
+    <%= button_to "Destroy this group", @group, method: :delete, class:"btn btn-sm btn-danger mt-2" if current_user&.admin? %>
+>>>>>>> Stashed changes
   
 </div>
