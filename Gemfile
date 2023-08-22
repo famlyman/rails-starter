@@ -80,3 +80,5 @@ gem "rubocop", "~> 1.56"
 gem "friendly_id", "~> 5.5"
 
 gem "foreman", "~> 0.87.2"
+
+gem 'simple_form'

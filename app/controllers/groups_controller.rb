@@ -59,9 +59,12 @@ class GroupsController < ApplicationController
   end
 
   def new_team
-    @group = Group.create 
-    
-    
+    @group = Group.new 
+    @group.users << current_user
+    @group.save
+
+    render turbo_stream:
+      turbo_stream.update("group_code", partial: "groups/group_code", locals: { group: @group })
   end
 
   def join

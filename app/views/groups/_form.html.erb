@@ -11,14 +11,14 @@
     </div>
   <% end %>
   
-  <%= turbo_frame_tag "group_code" do %>
-    <%= render partial: "groups/group_code", locals: {group: nil} %>
-  <% end %>
-
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
+
+  <%= turbo_frame_tag "group_code" do %>
+    <%= render partial: "groups/group_code", locals: {group: nil} %>
+  <% end %>
 
   <div>
     <%= form.submit %>
