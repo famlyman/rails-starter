@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'groupprofile/profile'
+  get 'profile/:id', to: 'groupprofile#profile', as: 'group_profile'
+  get 'users/profile'
+  get '/u/:id', to: 'users#profile', as: 'user'
   resources :memberships
   resources :groups do
     post 'join', :on => :member

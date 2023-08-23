@@ -1,0 +1,14 @@
+<h1><%= @group.name %></h1>
+<h6>Members</h6>
+  <ul>
+    <% @group.users.each do |user| %>
+      <li><%= user.email %></li>
+    <% end %>
+  </ul>
+<% if @group.users.include?(current_user) %>
+      <%= button_to 'Leave', leave_group_path(@group), method: :delete, class:"btn btn-sm btn-warning mb-2" %>
+    <% else %>
+      <%= button_to 'Join', join_group_path(@group), method: :post, class:"btn btn-sm btn-info mb-2" %>
+    <% end %>
+    <br />
+    <%= link_to "Back to Teams", groups_path, class:"btn btn-sm btn-primary mb-2" %>
