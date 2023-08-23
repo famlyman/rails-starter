@@ -7,7 +7,7 @@
   <% @groups.each do |group| %>
     <%= render group %>
     <p>
-      <%= link_to "Show this Team", group, class:"btn btn-sm btn-success mb-2" %>
+      <%= link_to "Show this Team", group_profile_path(group), class:"btn btn-sm btn-success mb-2" %>
     </p>
   <% end %>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_192115) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_183336) do
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_192115) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "seasons", force: :cascade do |t|
+    t.string "name"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "groups_id"
+    t.index ["groups_id"], name: "index_seasons_on_groups_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,4 +63,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_192115) do
 
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
+  add_foreign_key "seasons", "groups", column: "groups_id"
 end

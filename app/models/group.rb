@@ -1,9 +1,11 @@
 class Group < ApplicationRecord
+  has_one :groupprofile
   has_many :memberships
   has_many :users, through: :memberships
+  belongs_to :season
   require 'securerandom'
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :slug_candidates, use: [:slugged, :finders]
 
   def slug_candidates
     attempts = 0
