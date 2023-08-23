@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <%= render @season %>
+  <div>
+   <h6>Groups</h6>
+  <ul>
+    <% @groups.each do |group| %>
+      <li><%= group.name %></li>
+    <% end %>
+  </ul>
+    <%= link_to "Back to seasons", seasons_path %>
+    <% if current_user&.admin? %>
+      <%= link_to "Edit this season", edit_season_path(@season) %> |
+      <%= button_to "Destroy this season", @season, method: :delete %>
+    <% end %>
+  </div>
+</div>

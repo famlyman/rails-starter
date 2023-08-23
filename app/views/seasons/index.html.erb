@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1>Seasons</h1>
+  <div id="seasons">
+    <% @seasons.each do |season| %>
+      <%= render season %>
+      <p>
+        <%= link_to "Show this season", season %>
+      </p>
+    <% end %>
+  </div>
+  <% if current_user&.admin? %>
+    <%= link_to "New season", new_season_path %>
+  <% end %>
+</div>

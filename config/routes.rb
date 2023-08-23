@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :seasons
   get 'groupprofile/profile'
   get 'profile/:id', to: 'groupprofile#profile', as: 'group_profile'
   get 'users/profile'
